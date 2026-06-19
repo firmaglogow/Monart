@@ -150,12 +150,14 @@
 
   const offeringCards = document.querySelectorAll(".offering-card");
   const hoverCardsQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const touchCardsQuery = window.matchMedia("(hover: none), (pointer: coarse)");
 
   function setupOfferingCards() {
     if (!offeringCards.length) return;
 
+    const shouldOpenFirst = touchCardsQuery.matches || !hoverCardsQuery.matches;
     offeringCards.forEach((card, index) => {
-      card.open = !hoverCardsQuery.matches && index === 0;
+      card.open = shouldOpenFirst && index === 0;
     });
   }
 
@@ -189,8 +191,10 @@
 
     if (typeof hoverCardsQuery.addEventListener === "function") {
       hoverCardsQuery.addEventListener("change", setupOfferingCards);
+      touchCardsQuery.addEventListener("change", setupOfferingCards);
     } else {
       hoverCardsQuery.addListener(setupOfferingCards);
+      touchCardsQuery.addListener(setupOfferingCards);
     }
   }
 

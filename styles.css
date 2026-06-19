@@ -1402,6 +1402,20 @@ figcaption {
     gap: 12px;
   }
 
+  .offering-card summary::after {
+    bottom: -16px;
+  }
+
+  .offering-card:not([open]) summary::after {
+    opacity: 0.68;
+    transform: translateX(0);
+  }
+
+  .offering-card[open] summary::after {
+    opacity: 0.68;
+    transform: translateX(0);
+  }
+
   .offering-card h3 {
     font-size: 1.45rem;
   }
