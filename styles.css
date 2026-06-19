@@ -1079,7 +1079,7 @@ figcaption {
 }
 
 .site-footer a {
-  color: rgba(247, 242, 235, 0.72);
+  color: var(--white);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.1em;
