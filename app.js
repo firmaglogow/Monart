@@ -8,6 +8,19 @@
   const counters = document.querySelectorAll("[data-count-to]");
   const counterSections = document.querySelectorAll(".studio-stats");
 
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  const resetToHero = () => {
+    if (!location.hash || location.hash === "#top") {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  };
+
+  window.addEventListener("DOMContentLoaded", resetToHero, { once: true });
+  window.addEventListener("load", resetToHero, { once: true });
+
   function animateCounter(counter) {
     if (counter.dataset.counted === "true") return;
 

@@ -387,9 +387,9 @@ h2 {
 
 .hero {
   position: relative;
-  min-height: 92svh;
+  min-height: 100svh;
   display: grid;
-  align-items: end;
+  align-items: start;
   isolation: isolate;
   overflow: hidden;
   background: var(--sand);
@@ -412,8 +412,8 @@ h2 {
 .hero-shade {
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(23, 32, 25, 0.76), rgba(23, 32, 25, 0.35) 46%, rgba(23, 32, 25, 0.05)),
-    linear-gradient(0deg, rgba(23, 32, 25, 0.62), transparent 44%);
+    linear-gradient(90deg, rgba(247, 242, 235, 0.84), rgba(226, 216, 201, 0.56) 40%, rgba(214, 205, 193, 0.1)),
+    linear-gradient(0deg, rgba(113, 133, 103, 0.28), rgba(247, 242, 235, 0.06) 52%);
 }
 
 .hero-content {
@@ -431,15 +431,15 @@ h2 {
 .hero-copy {
   position: relative;
   z-index: 2;
-  width: min(620px, calc(100% - 42px));
-  margin: 0 0 clamp(112px, 15vw, 180px) clamp(18px, 8vw, 138px);
+  width: min(760px, calc(100% - 42px));
+  margin: clamp(118px, 16vh, 178px) 0 0 clamp(18px, 8vw, 138px);
   color: var(--ink);
-  text-wrap: balance;
+  text-shadow: 0 12px 28px rgba(255, 253, 248, 0.42);
 }
 
 .hero-copy .eyebrow {
   margin-bottom: 20px;
-  color: rgba(97, 77, 58, 0.82);
+  color: rgba(255, 253, 248, 0.84);
   font-size: 0.74rem;
   letter-spacing: 0.18em;
 }
@@ -448,64 +448,53 @@ h2 {
   font-size: 0.7em;
 }
 
-.hero-copy h1 {
-  max-width: 590px;
+.hero-logo {
+  max-width: 760px;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(4rem, 7vw, 7.4rem);
-  font-weight: 500;
+  font-size: clamp(7.2rem, 13vw, 14.8rem);
+  font-weight: 700;
   letter-spacing: 0;
-  line-height: 0.86;
-  text-shadow: 0 12px 28px rgba(255, 253, 248, 0.42);
+  line-height: 0.68;
+  color: #221d19;
+  text-shadow: 0 18px 44px rgba(255, 253, 248, 0.46);
 }
 
-.hero-copy h1::after {
+.hero-logo small {
+  font-family: var(--sans);
+  font-size: 0.22em;
+  font-weight: 700;
+  color: var(--moss);
+  vertical-align: 0.12em;
+}
+
+.hero-script {
+  margin: 8px 0 30px clamp(8px, 2.8vw, 46px);
+  color: #4f463d;
+  font-family: var(--script);
+  font-size: clamp(3rem, 6.6vw, 6.8rem);
+  line-height: 0.82;
+  text-shadow: 0 14px 34px rgba(255, 253, 248, 0.48);
+}
+
+.hero-lead {
+  max-width: 620px;
+  margin: 0 0 34px;
+  color: #332a24;
+  font-family: var(--sans);
+  font-size: clamp(1.16rem, 1.65vw, 1.48rem);
+  font-weight: 500;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+.hero-lead::after {
   content: "";
   display: block;
-  width: min(360px, 70%);
+  width: min(360px, 62%);
   height: 1px;
-  margin: 28px 0 16px;
+  margin: 28px 0 0;
   background: linear-gradient(90deg, rgba(170, 143, 117, 0.7), rgba(113, 133, 103, 0.38));
-}
-
-.hero-line {
-  display: block;
-  color: #221d19;
-}
-
-.hero-line-soft {
-  color: #4f463d;
-}
-
-.hero-line-accent {
-  color: var(--moss);
-}
-
-.hero-copy p {
-  max-width: 540px;
-  margin: 0;
-  color: var(--ink);
-  font-family: var(--serif);
-  font-size: clamp(1.7rem, 3vw, 3rem);
-  font-weight: 500;
-  line-height: 1.04;
-}
-
-.hero-subtitle {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: baseline;
-  color: #332a24 !important;
-}
-
-.hero-subtitle span {
-  font-weight: 500;
-}
-
-.hero-subtitle em {
-  color: var(--clay);
-  font-style: italic;
 }
 
 .script {
@@ -525,7 +514,7 @@ h2 {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
 
 .intro {
@@ -1041,49 +1030,50 @@ figcaption {
   }
 
   .hero {
-    min-height: 0;
-    display: block;
-    padding-top: var(--header-height);
-    background: var(--paper);
+    min-height: 100svh;
+    display: grid;
+    align-items: end;
+    padding: 0 0 54px;
+    background: var(--sand);
   }
 
   .hero picture,
   .hero picture img {
-    position: relative;
-    inset: auto;
+    position: absolute;
+    inset: 0;
   }
 
   .hero picture img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-  }
-
-  .hero-content {
-    width: calc(100% - 32px);
-    margin: 0 auto 112px;
+    height: 100%;
+    object-fit: cover;
+    object-position: 58% center;
   }
 
   .hero-copy {
     width: calc(100% - 32px);
-    margin: 26px auto 14px;
+    margin: 0 auto;
   }
 
-  .hero-copy h1 {
-    font-size: clamp(2.8rem, 13vw, 4.4rem);
+  .hero-logo {
+    font-size: clamp(4.45rem, 22vw, 7rem);
   }
 
-  .hero-copy h1::after {
-    margin: 18px 0 13px;
+  .hero-script {
+    margin: 4px 0 22px 18px;
+    font-size: clamp(2.35rem, 13vw, 4.4rem);
   }
 
-  .hero-copy p {
-    font-size: clamp(1.35rem, 7vw, 2rem);
+  .hero-lead {
+    margin-bottom: 26px;
+    font-size: 1rem;
+    line-height: 1.55;
+    text-wrap: pretty;
   }
 
-  .hero-subtitle {
-    gap: 6px;
+  .hero-lead::after {
+    width: 72%;
+    margin-top: 20px;
   }
 
   .lead {
