@@ -31,6 +31,11 @@
     birthdayPopup.classList.remove("is-visible");
     birthdayPopup.setAttribute("aria-hidden", "true");
     body.classList.remove("birthday-popup-open");
+    window.setTimeout(() => {
+      if (!birthdayPopup.classList.contains("is-visible")) {
+        birthdayPopup.hidden = true;
+      }
+    }, 280);
   }
 
   function playBirthdayAudio() {
@@ -53,6 +58,7 @@
   function openBirthdayPopup() {
     if (!birthdayPopup) return;
 
+    birthdayPopup.hidden = false;
     birthdayPopup.classList.add("is-visible");
     birthdayPopup.setAttribute("aria-hidden", "false");
     body.classList.add("birthday-popup-open");
