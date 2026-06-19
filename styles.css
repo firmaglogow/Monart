@@ -655,12 +655,15 @@ h2 {
 .offerings-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
   gap: clamp(16px, 2vw, 24px);
 }
 
 .offering-card {
+  position: relative;
   min-height: 0;
   padding: 26px;
+  overflow: hidden;
   border: 1px solid rgba(23, 32, 25, 0.08);
   border-radius: 6px;
   background:
@@ -673,7 +676,33 @@ h2 {
     background 180ms ease;
 }
 
+.offering-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(120deg, rgba(255, 253, 248, 0.92) 0%, rgba(255, 253, 248, 0.82) 46%, rgba(255, 253, 248, 0.18) 100%),
+    radial-gradient(circle at 78% 76%, rgba(233, 195, 199, 0.22), transparent 36%);
+  pointer-events: none;
+}
+
+.offering-card::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  z-index: 2;
+  width: 112px;
+  height: 112px;
+  border: 1px solid rgba(255, 253, 248, 0.58);
+  border-radius: 50%;
+  background: rgba(255, 253, 248, 0.28);
+  pointer-events: none;
+}
+
 .offering-card[open] {
+  min-height: 252px;
   border-color: rgba(169, 117, 85, 0.28);
   background:
     linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(113, 133, 103, 0.16)),
@@ -682,15 +711,47 @@ h2 {
 
 .offering-card:hover {
   transform: translateY(-3px);
+  border-color: rgba(49, 81, 31, 0.24);
 }
 
 .offering-card summary {
+  position: relative;
+  z-index: 4;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 0.5fr) auto;
   align-items: center;
   gap: 16px;
   list-style: none;
   cursor: pointer;
+}
+
+.offering-card summary::after {
+  content: "rozwiń kartę";
+  position: absolute;
+  left: 64px;
+  bottom: -24px;
+  transform: translateX(4px);
+  color: var(--moss);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.offering-card[open] summary::after {
+  content: "zwiń kartę";
+}
+
+.offering-card:hover summary::after,
+.offering-card summary:focus-visible::after {
+  opacity: 0.68;
+  transform: translateX(0);
 }
 
 .offering-card summary::-webkit-details-marker {
@@ -717,7 +778,7 @@ h2 {
 .creating-for-item h3 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  font-size: clamp(1.52rem, 2.2vw, 2.04rem);
   line-height: 0.98;
 }
 
@@ -725,18 +786,56 @@ h2 {
   width: 22px;
   height: 22px;
   color: var(--clay);
-  transition: transform 180ms ease;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.offering-card:hover summary svg {
+  color: var(--moss);
+  transform: translateY(2px);
 }
 
 .offering-card[open] summary svg {
   transform: rotate(180deg);
 }
 
+.offering-card[open]:hover summary svg {
+  transform: rotate(180deg) translateY(2px);
+}
+
 .offering-card p {
-  margin: 18px 0 0 64px;
+  position: relative;
+  z-index: 4;
+  max-width: min(34%, 210px);
+  margin: 46px 0 0 64px;
   padding-top: 18px;
   border-top: 1px solid rgba(23, 32, 25, 0.1);
   color: var(--ink-soft);
+  font-size: 0.87rem;
+}
+
+.offering-card-image {
+  position: absolute;
+  right: -18px;
+  bottom: -28px;
+  z-index: 2;
+  width: min(46%, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0.82;
+  filter: saturate(0.95) contrast(0.96);
+  transform: scale(1);
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+}
+
+.offering-card:hover .offering-card-image,
+.offering-card[open] .offering-card-image {
+  opacity: 0.92;
+  transform: scale(1.045);
 }
 
 .feature-band {
@@ -1267,20 +1366,36 @@ figcaption {
   }
 
   .offering-card {
+    min-height: 0;
     padding: 22px;
   }
 
+  .offering-card::after {
+    width: 86px;
+    height: 86px;
+  }
+
   .offering-card summary {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 12px;
   }
 
   .offering-card h3 {
-    font-size: 1.7rem;
+    font-size: 1.45rem;
   }
 
   .offering-card p {
-    margin-left: 0;
+    max-width: none;
+    margin: 42px 0 0;
+    padding-right: 82px;
+    font-size: 0.92rem;
+  }
+
+  .offering-card-image {
+    right: -24px;
+    bottom: -18px;
+    width: 132px;
+    opacity: 0.74;
   }
 
   .offerings-grid,
