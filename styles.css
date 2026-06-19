@@ -659,12 +659,42 @@ h2 {
 }
 
 .offering-card {
-  min-height: 240px;
+  min-height: 0;
   padding: 26px;
   border: 1px solid rgba(23, 32, 25, 0.08);
   border-radius: 6px;
-  background: rgba(255, 253, 248, 0.7);
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.92), rgba(233, 195, 199, 0.18)),
+    rgba(255, 253, 248, 0.7);
   box-shadow: 0 20px 48px rgba(90, 66, 51, 0.08);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.offering-card[open] {
+  border-color: rgba(169, 117, 85, 0.28);
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(113, 133, 103, 0.16)),
+    rgba(255, 253, 248, 0.86);
+}
+
+.offering-card:hover {
+  transform: translateY(-3px);
+}
+
+.offering-card summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.offering-card summary::-webkit-details-marker {
+  display: none;
 }
 
 .offering-card span,
@@ -674,7 +704,6 @@ h2 {
   justify-content: center;
   min-width: 48px;
   height: 48px;
-  margin-bottom: 20px;
   padding: 0 14px;
   border-radius: 999px;
   background: rgba(113, 133, 103, 0.14);
@@ -686,14 +715,27 @@ h2 {
 
 .offering-card h3,
 .creating-for-item h3 {
-  margin: 0 0 10px;
+  margin: 0;
   font-family: var(--serif);
   font-size: clamp(1.8rem, 2.6vw, 2.4rem);
   line-height: 0.98;
 }
 
+.offering-card summary svg {
+  width: 22px;
+  height: 22px;
+  color: var(--clay);
+  transition: transform 180ms ease;
+}
+
+.offering-card[open] summary svg {
+  transform: rotate(180deg);
+}
+
 .offering-card p {
-  margin: 0;
+  margin: 18px 0 0 64px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(23, 32, 25, 0.1);
   color: var(--ink-soft);
 }
 
@@ -853,6 +895,19 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+.gallery-grid figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-16deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 253, 248, 0.28), transparent);
+  transition: transform 700ms ease;
+}
+
+.gallery-grid figure.is-visible::after {
+  transform: translateX(120%) skewX(-16deg);
+}
+
 .gallery-grid .gallery-large {
   grid-column: span 2;
 }
@@ -861,7 +916,13 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: galleryDrift 12s ease-in-out infinite alternate;
   transition: transform 420ms ease;
+}
+
+.gallery-grid figure:nth-child(even) img {
+  animation-delay: -4s;
+  animation-direction: alternate-reverse;
 }
 
 .gallery-grid figure:hover img {
@@ -998,14 +1059,18 @@ figcaption {
   grid-template-columns: minmax(180px, 0.8fr) minmax(240px, 1fr) minmax(240px, 0.8fr);
   gap: 22px;
   align-items: center;
-  background: var(--ink);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(233, 195, 199, 0.18), transparent 32%),
+    linear-gradient(135deg, #172019, #243321 58%, #d6cdc1 220%);
   color: var(--paper);
 }
 
 .site-footer p,
 .site-footer address {
   margin: 0;
-  color: rgba(247, 242, 235, 0.72);
+  color: rgba(247, 242, 235, 0.76);
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .site-footer address {
@@ -1015,7 +1080,7 @@ figcaption {
 
 .site-footer a {
   color: rgba(247, 242, 235, 0.72);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-align: right;
@@ -1038,6 +1103,16 @@ figcaption {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes galleryDrift {
+  from {
+    transform: scale(1.01) translate3d(-0.8%, -0.5%, 0);
+  }
+
+  to {
+    transform: scale(1.055) translate3d(0.8%, 0.5%, 0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1191,6 +1266,23 @@ figcaption {
     width: 100%;
   }
 
+  .offering-card {
+    padding: 22px;
+  }
+
+  .offering-card summary {
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+  }
+
+  .offering-card h3 {
+    font-size: 1.7rem;
+  }
+
+  .offering-card p {
+    margin-left: 0;
+  }
+
   .offerings-grid,
   .studio-stats,
   .popular-strip {
@@ -1237,10 +1329,12 @@ figcaption {
   .site-footer {
     display: grid;
     gap: 12px;
+    padding-bottom: 34px;
   }
 
   .site-footer a {
     text-align: left;
+    font-size: 0.64rem;
   }
 
   .mobile-contact-bar {
