@@ -148,6 +148,52 @@
     trackedSections.forEach((section) => navObserver.observe(section));
   }
 
+  const offeringCards = document.querySelectorAll(".offering-card");
+  const hoverCardsQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  function setupOfferingCards() {
+    if (!offeringCards.length) return;
+
+    offeringCards.forEach((card, index) => {
+      card.open = !hoverCardsQuery.matches && index === 0;
+    });
+  }
+
+  if (offeringCards.length) {
+    offeringCards.forEach((card) => {
+      const summary = card.querySelector("summary");
+      let hoverTimer;
+
+      card.addEventListener("mouseenter", () => {
+        if (!hoverCardsQuery.matches) return;
+        clearTimeout(hoverTimer);
+        hoverTimer = window.setTimeout(() => {
+          card.open = true;
+        }, 130);
+      });
+
+      card.addEventListener("mouseleave", () => {
+        if (!hoverCardsQuery.matches) return;
+        clearTimeout(hoverTimer);
+        hoverTimer = window.setTimeout(() => {
+          card.open = false;
+        }, 120);
+      });
+
+      summary?.addEventListener("click", (event) => {
+        if (hoverCardsQuery.matches) event.preventDefault();
+      });
+    });
+
+    setupOfferingCards();
+
+    if (typeof hoverCardsQuery.addEventListener === "function") {
+      hoverCardsQuery.addEventListener("change", setupOfferingCards);
+    } else {
+      hoverCardsQuery.addListener(setupOfferingCards);
+    }
+  }
+
   if (window.lucide) {
     window.lucide.createIcons({ attrs: { "stroke-width": 1.7 } });
   }
