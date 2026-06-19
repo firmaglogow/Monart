@@ -1047,7 +1047,13 @@ figcaption {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 86% center;
+    object-position: right center;
+  }
+
+  .hero-shade {
+    background:
+      linear-gradient(90deg, rgba(247, 242, 235, 0.94), rgba(226, 216, 201, 0.76) 42%, rgba(214, 205, 193, 0.28)),
+      linear-gradient(0deg, rgba(113, 133, 103, 0.44), rgba(247, 242, 235, 0.18) 54%);
   }
 
   .hero-copy {
