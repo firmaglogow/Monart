@@ -44,6 +44,94 @@ body.menu-open {
   overflow: hidden;
 }
 
+body.birthday-popup-open {
+  overflow: hidden;
+}
+
+.birthday-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 3vw, 34px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+}
+
+.birthday-popup.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.birthday-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(247, 242, 235, 0.42), transparent 38%),
+    rgba(23, 32, 25, 0.68);
+  backdrop-filter: blur(10px);
+}
+
+.birthday-popup__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  overflow: hidden;
+  border: 1px solid rgba(255, 253, 248, 0.56);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: 0 32px 120px rgba(10, 15, 11, 0.38);
+  transform: translateY(14px) scale(0.985);
+  transition: transform 320ms ease;
+}
+
+.birthday-popup.is-visible .birthday-popup__dialog {
+  transform: translateY(0) scale(1);
+}
+
+.birthday-popup__dialog picture,
+.birthday-popup__dialog img {
+  display: block;
+}
+
+.birthday-popup__dialog img {
+  width: 100%;
+  height: auto;
+}
+
+.birthday-popup__close,
+.birthday-popup__music {
+  position: absolute;
+  z-index: 2;
+  min-height: 42px;
+  border-radius: 999px;
+  box-shadow: 0 12px 34px rgba(23, 32, 25, 0.14);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.birthday-popup__close {
+  top: 16px;
+  right: 16px;
+  padding: 0 18px;
+  background: rgba(255, 253, 248, 0.88);
+  color: var(--ink);
+  max-width: calc(100% - 32px);
+  white-space: normal;
+}
+
+.birthday-popup__music {
+  left: 16px;
+  bottom: 16px;
+  padding: 0 18px;
+  background: var(--moss);
+  color: var(--white);
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -1321,6 +1409,42 @@ figcaption {
 }
 
 @media (max-width: 680px) {
+  .birthday-popup {
+    padding: 12px;
+  }
+
+  .birthday-popup__dialog {
+    border-radius: 8px;
+  }
+
+  .birthday-popup__dialog {
+    max-height: calc(100svh - 24px);
+  }
+
+  .birthday-popup__dialog img {
+    width: 100%;
+    max-height: calc(100svh - 24px);
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .birthday-popup__close {
+    top: 10px;
+    right: 10px;
+    min-height: 38px;
+    max-width: calc(100% - 20px);
+    padding: 0 14px;
+    font-size: 0.68rem;
+  }
+
+  .birthday-popup__music {
+    left: 10px;
+    bottom: 10px;
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 0.68rem;
+  }
+
   .brand span {
     display: none;
   }

@@ -56,6 +56,24 @@
   <body>
     <a class="skip-link" href="#main">Przejdź do treści</a>
 
+    <div class="birthday-popup" data-birthday-popup aria-hidden="true">
+      <div class="birthday-popup__backdrop" data-birthday-close></div>
+      <section class="birthday-popup__dialog" role="dialog" aria-modal="true" aria-label="Życzenia urodzinowe">
+        <button class="birthday-popup__close" type="button" data-birthday-close>Zamknij i otwórz prezent</button>
+        <picture>
+          <source media="(max-width: 680px)" srcset="assets/monart/birthday/natalia-urodziny-mobile.png" />
+          <img
+            src="assets/monart/birthday/natalia-urodziny.png"
+            alt="Z okazji urodzin wszystkiego najlepszego, Natalio!"
+            width="1792"
+            height="1024"
+          />
+        </picture>
+        <button class="birthday-popup__music" type="button" data-birthday-play hidden>Włącz muzykę</button>
+        <audio data-birthday-audio src="assets/monart/birthday/cieply-poranek.mp3" preload="auto" autoplay></audio>
+      </section>
+    </div>
+
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="monaRT - strona główna">
         <img src="assets/monart/641625587_1569288624353552_5345776127900909032_n.jpg" alt="" width="46" height="46" />
