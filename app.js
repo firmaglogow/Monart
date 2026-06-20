@@ -7,84 +7,6 @@
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const counters = document.querySelectorAll("[data-count-to]");
   const counterSections = document.querySelectorAll(".studio-stats");
-  const birthdayPopup = document.querySelector("[data-birthday-popup]");
-  const birthdayAudio = document.querySelector("[data-birthday-audio]");
-  const birthdayPlay = document.querySelector("[data-birthday-play]");
-  const birthdayCloseButtons = document.querySelectorAll("[data-birthday-close]");
-  let birthdayTimer;
-
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
-
-  function stopBirthdayAudio() {
-    if (!birthdayAudio) return;
-    birthdayAudio.pause();
-    birthdayAudio.currentTime = 0;
-  }
-
-  function closeBirthdayPopup() {
-    if (!birthdayPopup) return;
-
-    clearTimeout(birthdayTimer);
-    stopBirthdayAudio();
-    birthdayPopup.classList.remove("is-visible");
-    birthdayPopup.setAttribute("aria-hidden", "true");
-    body.classList.remove("birthday-popup-open");
-    window.setTimeout(() => {
-      if (!birthdayPopup.classList.contains("is-visible")) {
-        birthdayPopup.hidden = true;
-      }
-    }, 280);
-  }
-
-  function playBirthdayAudio() {
-    if (!birthdayAudio) return;
-
-    birthdayAudio.volume = 0.42;
-    const playPromise = birthdayAudio.play();
-
-    if (playPromise && typeof playPromise.catch === "function") {
-      playPromise
-        .then(() => {
-          if (birthdayPlay) birthdayPlay.hidden = true;
-        })
-        .catch(() => {
-          if (birthdayPlay) birthdayPlay.hidden = false;
-        });
-    }
-  }
-
-  function openBirthdayPopup() {
-    if (!birthdayPopup) return;
-
-    birthdayPopup.hidden = false;
-    birthdayPopup.classList.add("is-visible");
-    birthdayPopup.setAttribute("aria-hidden", "false");
-    body.classList.add("birthday-popup-open");
-    playBirthdayAudio();
-    birthdayTimer = window.setTimeout(closeBirthdayPopup, 35000);
-  }
-
-  if (birthdayPopup) {
-    document.addEventListener("DOMContentLoaded", playBirthdayAudio, { once: true });
-    window.addEventListener("load", openBirthdayPopup, { once: true });
-    window.addEventListener("pointerdown", playBirthdayAudio, { once: true });
-    birthdayPlay?.addEventListener("click", playBirthdayAudio);
-    birthdayCloseButtons.forEach((button) => button.addEventListener("click", closeBirthdayPopup));
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeBirthdayPopup();
-    });
-  }
-
-  const resetToHero = () => {
-    if (!location.hash || location.hash === "#top") {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }
-  };
-
-  window.addEventListener("DOMContentLoaded", resetToHero, { once: true });
-  window.addEventListener("load", resetToHero, { once: true });
 
   function animateCounter(counter) {
     if (counter.dataset.counted === "true") return;
@@ -145,6 +67,7 @@
     menuButton?.setAttribute("aria-expanded", String(open));
     menuButton?.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
     mobileMenu?.setAttribute("aria-hidden", String(!open));
+    if (mobileMenu) mobileMenu.inert = !open;
 
     if (open) {
       menuClose?.focus();

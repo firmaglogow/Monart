@@ -27,52 +27,160 @@
 
     <link rel="icon" href="assets/monart/641625587_1569288624353552_5345776127900909032_n.jpg" />
     <link rel="canonical" href="https://mona-rt.pl/" />
+    <link rel="preload" as="image" href="assets/monart/generated/monart-hero-clean.png" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Parisienne&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260619-wydarzenia" />
+    <link rel="stylesheet" href="styles.css?v=20260620-audyt" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "monaRT",
-        "description": "Przytulna przestrzeń twórcza dla dzieci i dorosłych.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Dworcowa 4B/1",
-          "addressLocality": "Kostrzyn Wlkp",
-          "addressCountry": "PL"
-        },
-        "telephone": "+48727923951",
-        "sameAs": "https://www.facebook.com/profile.php?id=61588538744279"
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://mona-rt.pl/#business",
+            "name": "monaRT",
+            "url": "https://mona-rt.pl/",
+            "image": "https://mona-rt.pl/assets/monart/generated/monart-hero-clean.png",
+            "logo": "https://mona-rt.pl/assets/monart/641625587_1569288624353552_5345776127900909032_n.jpg",
+            "description": "Przytulna przestrzeń twórcza dla dzieci i dorosłych. Warsztaty, urodziny, baby shower, wieczory panieńskie, półkolonie i plenery artystyczne.",
+            "priceRange": "70-790 PLN",
+            "telephone": "+48727923951",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Dworcowa 4B/1",
+              "addressLocality": "Kostrzyn Wlkp",
+              "addressCountry": "PL"
+            },
+            "sameAs": ["https://www.facebook.com/profile.php?id=61588538744279"]
+          },
+          {
+            "@type": "Event",
+            "name": "Sztuka haftu użytkowego",
+            "startDate": "2026-06-20T17:00:00+02:00",
+            "endDate": "2026-06-20T19:30:00+02:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "url": "https://monart.org.pl/wydarzenie/2/",
+            "description": "Podstawy haftu i pierwszy własny wzór na ubrania. Kameralne spotkanie prowadzone w twórczej atmosferze.",
+            "image": "https://mona-rt.pl/assets/monart/offerings/zajecia-kreatywne.jpg",
+            "location": {
+              "@type": "Place",
+              "name": "monaRT",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dworcowa 4B/1",
+                "addressLocality": "Kostrzyn Wlkp",
+                "addressCountry": "PL"
+              }
+            },
+            "organizer": { "@id": "https://mona-rt.pl/#business" },
+            "offers": {
+              "@type": "Offer",
+              "price": "80",
+              "priceCurrency": "PLN",
+              "availability": "https://schema.org/InStock",
+              "url": "https://monart.org.pl/wydarzenie/2/"
+            }
+          },
+          {
+            "@type": "Event",
+            "name": "Rysunek i malarstwo dla dzieci +7",
+            "startDate": "2026-06-29T10:00:00+02:00",
+            "endDate": "2026-07-03T18:00:00+02:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "url": "https://monart.org.pl/wydarzenie/1/",
+            "description": "Tydzień twórczych zajęć dla dzieci, które lubią rysować, malować i poznawać różne techniki artystyczne.",
+            "image": "https://mona-rt.pl/assets/monart/optimized/warsztaty-dla-dzieci.jpg",
+            "location": {
+              "@type": "Place",
+              "name": "monaRT",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dworcowa 4B/1",
+                "addressLocality": "Kostrzyn Wlkp",
+                "addressCountry": "PL"
+              }
+            },
+            "organizer": { "@id": "https://mona-rt.pl/#business" },
+            "offers": {
+              "@type": "Offer",
+              "price": "300",
+              "priceCurrency": "PLN",
+              "availability": "https://schema.org/InStock",
+              "url": "https://monart.org.pl/wydarzenie/1/"
+            }
+          },
+          {
+            "@type": "Event",
+            "name": "W siodle Przygody",
+            "startDate": "2026-07-20T07:30:00+02:00",
+            "endDate": "2026-07-24T16:00:00+02:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "url": "https://monart.org.pl/wydarzenie/3/",
+            "description": "Pięć dni kreatywnych warsztatów, ruchu i zabawy. W programie hobby horse, makrama, bransoletki, malowanie oraz wycieczka do stadniny.",
+            "image": "https://mona-rt.pl/assets/monart/optimized/polkolonie-plenery.jpg",
+            "location": {
+              "@type": "Place",
+              "name": "monaRT",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dworcowa 4B/1",
+                "addressLocality": "Kostrzyn Wlkp",
+                "addressCountry": "PL"
+              }
+            },
+            "organizer": { "@id": "https://mona-rt.pl/#business" },
+            "offers": {
+              "@type": "Offer",
+              "price": "790",
+              "priceCurrency": "PLN",
+              "availability": "https://schema.org/InStock",
+              "url": "https://monart.org.pl/wydarzenie/3/"
+            }
+          },
+          {
+            "@type": "Event",
+            "name": "Blisko Natury",
+            "startDate": "2026-07-27T07:30:00+02:00",
+            "endDate": "2026-07-31T16:00:00+02:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "url": "https://monart.org.pl/wydarzenie/4/",
+            "description": "Warsztaty naturalne, bransoletki, wianki z kwiatów, wycieczka do pasieki, zielnik, piknik oraz gry i zabawy na świeżym powietrzu.",
+            "image": "https://mona-rt.pl/assets/monart/optimized/plenery-artystyczne.jpg",
+            "location": {
+              "@type": "Place",
+              "name": "monaRT",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dworcowa 4B/1",
+                "addressLocality": "Kostrzyn Wlkp",
+                "addressCountry": "PL"
+              }
+            },
+            "organizer": { "@id": "https://mona-rt.pl/#business" },
+            "offers": {
+              "@type": "Offer",
+              "price": "790",
+              "priceCurrency": "PLN",
+              "availability": "https://schema.org/InStock",
+              "url": "https://monart.org.pl/wydarzenie/4/"
+            }
+          }
+        ]
       }
     </script>
   </head>
 
   <body>
     <a class="skip-link" href="#main">Przejdź do treści</a>
-
-    <div class="birthday-popup" data-birthday-popup aria-hidden="true" hidden>
-      <div class="birthday-popup__backdrop" data-birthday-close></div>
-      <section class="birthday-popup__dialog" role="dialog" aria-modal="true" aria-label="Życzenia urodzinowe">
-        <button class="birthday-popup__close" type="button" data-birthday-close>Zamknij i otwórz prezent</button>
-        <picture>
-          <source media="(max-width: 680px)" srcset="assets/monart/birthday/natalia-urodziny-mobile.png" />
-          <img
-            src="assets/monart/birthday/natalia-urodziny.png"
-            alt="Z okazji urodzin wszystkiego najlepszego, Natalio!"
-            width="1792"
-            height="1024"
-          />
-        </picture>
-        <button class="birthday-popup__music" type="button" data-birthday-play hidden>Włącz muzykę</button>
-        <audio data-birthday-audio src="assets/monart/birthday/cieply-poranek.mp3" preload="auto" autoplay></audio>
-      </section>
-    </div>
 
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="monaRT - strona główna">
@@ -85,7 +193,7 @@
 
       <nav class="desktop-nav" aria-label="Główna nawigacja">
         <a href="#pracownia">O pracowni</a>
-        <a href="#okazje">Okazje</a>
+        <a href="#okazje">Oferta</a>
         <a href="#wydarzenia">Wydarzenia</a>
         <a href="#proces">Jak wygląda spotkanie</a>
         <a href="#galeria">Świat monaRT</a>
@@ -110,7 +218,7 @@
       </div>
     </header>
 
-    <aside class="mobile-menu" id="mobile-menu" aria-hidden="true" data-mobile-menu>
+    <aside class="mobile-menu" id="mobile-menu" aria-hidden="true" data-mobile-menu inert>
       <div class="mobile-menu-top">
         <span>mona<small>RT</small></span>
         <button type="button" aria-label="Zamknij menu" data-menu-close>
@@ -119,7 +227,7 @@
       </div>
       <nav aria-label="Nawigacja mobilna">
         <a href="#pracownia">O pracowni</a>
-        <a href="#okazje">Okazje</a>
+        <a href="#okazje">Oferta</a>
         <a href="#wydarzenia">Wydarzenia</a>
         <a href="#proces">Jak wygląda spotkanie</a>
         <a href="#galeria">Świat monaRT</a>
@@ -136,6 +244,10 @@
           <img
             src="assets/monart/generated/monart-hero-clean.png"
             alt="monaRT - przytulna przestrzeń twórcza dla dzieci i dorosłych"
+            width="2048"
+            height="1365"
+            fetchpriority="high"
+            decoding="async"
           />
         </picture>
         <div class="hero-shade" aria-hidden="true"></div>
@@ -143,11 +255,11 @@
           <h1 class="hero-logo">mona<small>RT</small></h1>
           <p class="hero-script">przestrzeń twórcza</p>
           <p class="hero-lead">
-            Przytulna przestrzeń twórcza dla dzieci i dorosłych.
+            Przytulna przestrzeń twórcza dla dzieci i dorosłych w Kostrzynie Wlkp.
           </p>
           <div class="hero-actions">
             <a class="button" href="#kontakt">Zapisy i kontakt</a>
-            <a class="button button-light" href="#okazje">Zobacz okazje</a>
+            <a class="button button-light" href="#okazje">Zobacz ofertę spotkań</a>
           </div>
         </div>
       </section>
@@ -231,6 +343,7 @@
               <a class="event-link" href="https://monart.org.pl/wydarzenie/2/" target="_blank" rel="noopener">
                 Zapisz się
               </a>
+              <p class="event-note">Zapisy odbywają się przez system monaRT.</p>
             </div>
           </article>
           <article class="event-card reveal">
@@ -253,6 +366,7 @@
               <a class="event-link" href="https://monart.org.pl/wydarzenie/1/" target="_blank" rel="noopener">
                 Zapisz się
               </a>
+              <p class="event-note">Zapisy odbywają się przez system monaRT.</p>
             </div>
           </article>
           <article class="event-card reveal event-card-featured">
@@ -275,6 +389,7 @@
               <a class="event-link" href="https://monart.org.pl/wydarzenie/3/" target="_blank" rel="noopener">
                 Zapisz się
               </a>
+              <p class="event-note">Zapisy odbywają się przez system monaRT.</p>
             </div>
           </article>
           <article class="event-card reveal event-card-featured">
@@ -297,7 +412,37 @@
               <a class="event-link" href="https://monart.org.pl/wydarzenie/4/" target="_blank" rel="noopener">
                 Zapisz się
               </a>
+              <p class="event-note">Zapisy odbywają się przez system monaRT.</p>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section trust-section" aria-labelledby="trust-heading">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Warto wiedzieć</p>
+          <h2 id="trust-heading">Spokojna organizacja i wszystko przygotowane na miejscu.</h2>
+        </div>
+        <div class="trust-grid">
+          <article class="trust-card reveal">
+            <i data-lucide="package-check" aria-hidden="true"></i>
+            <h3>Materiały w cenie</h3>
+            <p>Przygotowujemy narzędzia, bazę pracy i potrzebne dodatki, żeby uczestnicy mogli od razu tworzyć.</p>
+          </article>
+          <article class="trust-card reveal">
+            <i data-lucide="users-round" aria-hidden="true"></i>
+            <h3>Kameralne grupy</h3>
+            <p>Spotkania prowadzone są w spokojnym rytmie, z przestrzenią na pytania, pomoc i swobodną atmosferę.</p>
+          </article>
+          <article class="trust-card reveal">
+            <i data-lucide="gift" aria-hidden="true"></i>
+            <h3>Własna pamiątka</h3>
+            <p>Po warsztatach uczestnicy zabierają ze sobą coś wykonanego własnymi rękami.</p>
+          </article>
+          <article class="trust-card reveal">
+            <i data-lucide="map-pinned" aria-hidden="true"></i>
+            <h3>Pracownia w Kostrzynie</h3>
+            <p>Tworzymy przy Dworcowej 4B/1, w jasnej sali przygotowanej do warsztatów i kameralnych spotkań.</p>
           </article>
         </div>
       </section>
@@ -318,49 +463,51 @@
         <div class="offerings-grid">
           <details class="offering-card reveal">
             <summary><span>01</span><h3>Warsztaty rodzinne</h3><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-            <img class="offering-card-image" src="assets/monart/offerings/warsztaty-rodzinne.jpg" alt="" loading="lazy" decoding="async" />
+            <img class="offering-card-image" src="assets/monart/offerings/warsztaty-rodzinne.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" />
             <p>Rodzinne tworzenie przy jednym stole, w ciepłej atmosferze i z materiałami gotowymi na miejscu.</p>
           </details>
           <details class="offering-card reveal">
             <summary><span>02</span><h3>Urodziny</h3><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-            <img class="offering-card-image" src="assets/monart/offerings/urodziny.jpg" alt="" loading="lazy" decoding="async" />
+            <img class="offering-card-image" src="assets/monart/offerings/urodziny.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" />
             <p>Artystyczne przyjęcia dla dzieci i kameralne spotkania, które zostają w pamięci na długo.</p>
           </details>
           <details class="offering-card reveal">
             <summary><span>03</span><h3>Baby Shower</h3><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-            <img class="offering-card-image" src="assets/monart/offerings/baby-shower.jpg" alt="" loading="lazy" decoding="async" />
+            <img class="offering-card-image" src="assets/monart/offerings/baby-shower.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" />
             <p>Delikatna oprawa, kwiatowy klimat i twórczy czas celebrowany bez pośpiechu.</p>
           </details>
           <details class="offering-card reveal">
             <summary><span>04</span><h3>Wieczory Panieńskie</h3><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-            <img class="offering-card-image" src="assets/monart/offerings/wieczory-panienskie.jpg" alt="" loading="lazy" decoding="async" />
+            <img class="offering-card-image" src="assets/monart/offerings/wieczory-panienskie.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" />
             <p>Spotkania przy kwiatach, rękodziele i rozmowach, w swobodnym, eleganckim klimacie.</p>
           </details>
           <details class="offering-card reveal">
             <summary><span>05</span><h3>Zajęcia kreatywne</h3><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-            <img class="offering-card-image" src="assets/monart/offerings/zajecia-kreatywne.jpg" alt="" loading="lazy" decoding="async" />
+            <img class="offering-card-image" src="assets/monart/offerings/zajecia-kreatywne.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" />
             <p>Ceramika, haft, makrama, malowanie i inne twórcze formy dla dzieci i dorosłych.</p>
           </details>
           <details class="offering-card reveal">
             <summary><span>06</span><h3>Półkolonie i plenery</h3><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-            <img class="offering-card-image" src="assets/monart/offerings/polkolonie-plenery.jpg" alt="" loading="lazy" decoding="async" />
+            <img class="offering-card-image" src="assets/monart/offerings/polkolonie-plenery.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" />
             <p>Sezonowe spotkania pełne natury, kolorów i inspiracji dla małych artystów.</p>
           </details>
         </div>
       </section>
 
-      <section class="feature-band">
+      <section class="feature-band" aria-labelledby="custom-meetings-heading">
         <div class="feature-image reveal">
           <img
             src="assets/monart/generated/spotkania-na-zamowienie-wnetrze.jpg"
             alt="Wnętrze pracowni monaRT przygotowane do spotkania twórczego"
+            width="2048"
+            height="1365"
             loading="lazy"
             decoding="async"
           />
         </div>
         <div class="feature-copy reveal">
           <p class="section-kicker">Spotkania na zamówienie</p>
-          <h2>Urodziny, rodzinne warsztaty i kobiece wieczory w pięknej oprawie.</h2>
+          <h2 id="custom-meetings-heading">Urodziny, rodzinne warsztaty i kobiece wieczory w pięknej oprawie.</h2>
           <p>
             Przygotowujemy temat, materiały i oprawę spotkania. Ty przychodzisz
             z gośćmi, a monaRT prowadzi twórczą część wydarzenia w spokojnym,
@@ -408,6 +555,8 @@
             <img
               src="assets/monart/optimized/facebook-kolaz.jpg"
               alt="Kolaż zdjęć z twórczych spotkań w monaRT"
+              width="1152"
+              height="768"
               loading="lazy"
               decoding="async"
             />
@@ -473,6 +622,8 @@
             <img
               src="assets/monart/optimized/warsztaty-dla-dzieci.jpg"
               alt="Warsztaty dla dzieci w monaRT"
+              width="1400"
+              height="788"
               loading="lazy"
               decoding="async"
             />
@@ -482,6 +633,8 @@
             <img
               src="assets/monart/optimized/warsztaty-dla-doroslych.jpg"
               alt="Warsztaty dla dorosłych w monaRT"
+              width="1400"
+              height="788"
               loading="lazy"
               decoding="async"
             />
@@ -491,6 +644,8 @@
             <img
               src="assets/monart/optimized/wyjatkowe-okazje.jpg"
               alt="Wyjątkowe okazje w monaRT"
+              width="1400"
+              height="788"
               loading="lazy"
               decoding="async"
             />
@@ -500,6 +655,8 @@
             <img
               src="assets/monart/optimized/polkolonie-plenery.jpg"
               alt="Półkolonie i plenery artystyczne w monaRT"
+              width="1400"
+              height="788"
               loading="lazy"
               decoding="async"
             />
@@ -509,6 +666,8 @@
             <img
               src="assets/monart/optimized/plenery-artystyczne.jpg"
               alt="Plener artystyczny dla dzieci w monaRT"
+              width="1400"
+              height="788"
               loading="lazy"
               decoding="async"
             />
@@ -575,7 +734,11 @@
       </a>
     </footer>
 
-    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
-    <script src="app.js?v=20260619-urodziny-fix"></script>
+    <script
+      src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+      integrity="sha384-uTYyvsSSUZeaPhb5RbKlQa0zY/WpX/QHfvg2mczXyBQOpkWPEDy9lczyp+w7SKXu"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js?v=20260620-audyt"></script>
   </body>
 </html>
